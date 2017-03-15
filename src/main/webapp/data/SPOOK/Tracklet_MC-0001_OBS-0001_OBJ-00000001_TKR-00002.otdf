@@ -1,0 +1,13 @@
+# OTDF File: Contains the measurement values obtained by one observer for one tracklet (object pass), along with some observer properties.
+# Col1   Col2       Col3             Col4      Col5  Col6   Col7     Col8      Col9      Col10 Col11 Col12       Col13      Col14       Col15      Col16       Col17      Col18       Col19          Col20
+# 1-8    10-13      15-40            42-43     45-51 53-59  61-67    69-77     79-87     89-97 99    102-112     114-123    125-135     137-146    148-158     160-169    171-181     183-192        198-222
+# Track  Station    UTC              Reference T     p      Humidity Lat,WGS84 Lon,WGS84 Alt   nMeas MeasType    MeasValue  MeasType    MeasValue  MeasType    MeasValue  MeasType    MeasValue      time
+# ID     Grp ID     Time Tag         Time Flag [°C]  [hPa]  [%]      [deg]     [deg]     [m]                                                                                                         [JD]
+ OTDF                                  6
+DebrisOb SBOP 2014/04/07-21:38:05.000038  1  10.000  850.00  40.000   28.3010  -16.5119    2.4446 2  Right_Asc   213.591112 Declination  -3.735602 None          0.000000 None         0.000000       2456755.4014467597007751
+DebrisOb SBOP 2014/04/07-21:38:06.500050  1  10.000  850.00  40.000   28.3010  -16.5119    2.4446 2  Right_Asc   213.597118 Declination  -3.735506 None          0.000000 None         0.000000       2456755.4014641209505498
+DebrisOb SBOP 2014/04/07-21:38:08.000062  1  10.000  850.00  40.000   28.3010  -16.5119    2.4446 2  Right_Asc   213.603409 Declination  -3.735623 None          0.000000 None         0.000000       2456755.4014814822003245
+DebrisOb SBOP 2014/04/07-21:38:09.500033  1  10.000  850.00  40.000   28.3010  -16.5119    2.4446 2  Right_Asc   213.609761 Declination  -3.735855 None          0.000000 None         0.000000       2456755.4014988429844379
+DebrisOb SBOP 2014/04/07-21:38:11.000045  1  10.000  850.00  40.000   28.3010  -16.5119    2.4446 2  Right_Asc   213.616307 Declination  -3.735918 None          0.000000 None         0.000000       2456755.4015162042342126
+DebrisOb SBOP 2014/04/07-21:38:12.500057  1  10.000  850.00  40.000   28.3010  -16.5119    2.4446 2  Right_Asc   213.622675 Declination  -3.736220 None          0.000000 None         0.000000       2456755.4015335654839873
+ endlist

@@ -71,7 +71,7 @@ function buildEntity(id, positions, availStop) {
         pathConfig = {
             resolution: 1,
             material: Cesium.Color.SILVER,
-            width: 1,
+            width: 2,
             resolution: 60
         };
     }
@@ -144,8 +144,8 @@ function loadSSAOfflineData(url) {
                         var entity = buildEntity(sat.id, sampledPositionProperty, stop);
                         // Interpolation
                         entity.position.setInterpolationOptions({
-                            interpolationDegree: 3,
-                            interpolationAlgorithm: Cesium.LagrangePolynomialApproximation,
+                            interpolationDegree: 1,
+                            interpolationAlgorithm: Cesium.HermitePolynomialApproximation,
                             referenceFrame: Cesium.ReferenceFrame.INERTIAL
                         });
                         //adding to the viewer
@@ -235,6 +235,58 @@ function removeSamples() {
 }
 
 ///////////////////////////////////////////HELPER FUNCTIONS////////////////////////////////////////////////////////////////////
+/*
+ *************************
+ */
+function showEllipsiod(id, name, positions) {
+    var infoText = null;
+    var pointSpec = {
+        pixelSize: 5,
+        color: Cesium.Color.SILVER,
+        outlineColor: Cesium.Color.MIDNIGHTBLUE,
+        outlineWidth: 1
+    }
+    var boxSpecs = {
+        dimensions: new Cesium.Cartesian3(10.0, 10.0, 10.0),
+        material: Cesium.Color.NAVY.withAlpha(0.5)
+    }
+
+    var pathConfig = {
+        resolution: 60,
+        material: Cesium.Color.SILVER,
+        width: 0.35
+    };
+    return {
+        id: id,
+        name: name,
+        // Set the entity availability to the same interval as the simulation
+        // time.
+        availability: new Cesium.TimeIntervalCollection(
+				[new Cesium.TimeInterval({
+                start: propagationStartTime,
+                stop: propagationEndTime
+            })]),
+        // Use our computed positions
+        position: positions,
+        point: pointSpec,
+        box: null,
+        // Automatically compute orientation based on position movement.
+        orientation: new Cesium.VelocityOrientationProperty(positions),
+        path: pathConfig,
+        ellipsoid: {
+            radii: new Cesium.Cartesian3(500.0, 125.0, 100.0),
+            fill: false,
+            outline: true,
+            outlineColor: new Cesium.Color(Math.random(128, 256), Math.random(64, 256), Math.random(128, 265), 1),
+            slicePartitions: 30,
+            stackPartitions: 30
+        }
+    }
+}
+
+
+
+
 
 function getAsInteger(nr) {
     var str = nr.toString();
